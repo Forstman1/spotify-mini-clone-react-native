@@ -1,33 +1,83 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
+import Icon from "@expo/vector-icons/FontAwesome6";
+import { Animated, View } from "react-native";
+import AnimatedIcon from "@/components/animatedIcon";
+// import Animated from "react-native-reanimated";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors.text,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarStyle: {
+          // i want backgroud color to be transparent with blur effect
+
+          backgroundColor: Colors.background,
+          // blur
+          // shadow
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: -3,
+          },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+          elevation: 5,
+          height: 100,
+          paddingTop: 10,
+        },
+        tabBarLabelStyle: {
+          fontSize: 13,
+          paddingTop: 5,
+          fontWeight: "600",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Home",
+          tabBarIcon: ({ color, focused }) => (
+            <AnimatedIcon
+              size={28}
+              name="house"
+              color={color}
+              focused={focused}
+            />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="search"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Search",
+          tabBarIcon: ({ color, focused }) => (
+            <AnimatedIcon
+              size={28}
+              name="magnifying-glass"
+              color={color}
+              focused={focused}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="library"
+        options={{
+          title: "Library",
+          tabBarIcon: ({ color, focused }) => (
+            <AnimatedIcon
+              size={28}
+              name="book"
+              color={color}
+              focused={focused}
+            />
+          ),
         }}
       />
     </Tabs>
