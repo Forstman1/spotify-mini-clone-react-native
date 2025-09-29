@@ -14,13 +14,14 @@ import Animated from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { artists, playlists } from "@/constants/data";
 import { useState } from "react";
+import AutoScroll from "@homielab/react-native-auto-scroll";
 
 export default function HomeScreen() {
   const [play, setPlay] = useState(false);
   return (
     <SafeAreaView edges={["top", "left", "right"]} style={styles.safeArea}>
       <Animated.Text style={styles.greeting}>Good Evening</Animated.Text>
-      <Animated.ScrollView>
+      <Animated.ScrollView nestedScrollEnabled={true}>
         <Spacer size={30} />
         <Animated.Text style={styles.sectionTitle}>
           Your top artists
@@ -50,8 +51,8 @@ export default function HomeScreen() {
           Your playlists
         </Animated.Text>
         <FlatList
-          nestedScrollEnabled={false}
           data={playlists}
+          scrollEnabled={false}
           keyExtractor={(item) => item.id}
           horizontal={false}
           numColumns={2}
@@ -80,14 +81,16 @@ export default function HomeScreen() {
             style={styles.playerAlbumImage}
           />
           <View style={styles.playerTextContainer}>
-            <Text style={styles.playerSongTitle}>
-              From Me to You - Mono / Remastered
-            </Text>
+            <AutoScroll>
+              <Text style={styles.playerSongTitle}>
+                From Me to You - Mono / Remastered
+              </Text>
+            </AutoScroll>
             <View style={styles.playerDeviceContainer}>
               <AnimatedIcon
                 focused={true}
                 name="bluetooth-b"
-                size={14}
+                size={10}
                 color={Colors.primary}
               />
               <Text style={styles.playerDeviceText}>BEATSPILL+</Text>
@@ -214,6 +217,7 @@ const styles = StyleSheet.create({
   playerTextContainer: {
     justifyContent: "space-between",
     marginLeft: 10,
+    width: 250, // Important: needs defined width
   },
   playerSongTitle: {
     color: Colors.text,
@@ -226,7 +230,7 @@ const styles = StyleSheet.create({
   },
   playerDeviceText: {
     color: Colors.primary,
-    fontSize: 14,
+    fontSize: 12,
   },
   playerControlsContainer: {
     flexDirection: "row",

@@ -3,6 +3,7 @@ import { Platform, StyleSheet } from "react-native";
 
 import { Link } from "expo-router";
 import Animated from "react-native-reanimated";
+import { Colors } from "@/constants/theme";
 
 export default function SearchScreen() {
   return (
@@ -12,6 +13,7 @@ export default function SearchScreen() {
         justifyContent: "center",
         alignItems: "center",
         padding: 20,
+        backgroundColor: Colors.background,
       }}
     >
       <Animated.Text
