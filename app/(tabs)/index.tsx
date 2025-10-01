@@ -1,4 +1,5 @@
 import { Image } from "expo-image";
+import { useState } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -6,14 +7,12 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
 import AnimatedIcon from "@/components/animatedIcon";
 import Spacer from "@/components/spacer";
 import { Colors } from "@/constants/theme";
 import Animated from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { artists, playlists } from "@/constants/data";
-import { useState } from "react";
 import AutoScroll from "@homielab/react-native-auto-scroll";
 
 export default function HomeScreen() {
@@ -183,7 +182,6 @@ const styles = StyleSheet.create({
   playlistImage: {
     width: "100%",
     height: 154,
-    // borderRadius: 10,
     marginBottom: 10,
   },
   playlistName: {
@@ -200,7 +198,8 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: "#550A1C",
     marginHorizontal: 10,
-    borderRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 15,
@@ -217,7 +216,7 @@ const styles = StyleSheet.create({
   playerTextContainer: {
     justifyContent: "space-between",
     marginLeft: 10,
-    width: 250, // Important: needs defined width
+    width: "70%",
   },
   playerSongTitle: {
     color: Colors.text,

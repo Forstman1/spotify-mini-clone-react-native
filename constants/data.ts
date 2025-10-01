@@ -78,3 +78,48 @@ export const playlists = [
     songs: [],
   },
 ];
+
+export const genres = [
+  {
+    id: "1",
+    name: "Pop",
+    image: require("../assets/images/drake.jpg"),
+    color: "#bf6e86ff",
+  },
+  {
+    id: "2",
+    name: "Hip-Hop",
+    image: require("../assets/images/drake.jpg"),
+    color: "#6ebf86ff",
+  },
+  {
+    id: "3",
+    name: "Rock",
+    image: require("../assets/images/drake.jpg"),
+    color: "#6e86bfff",
+  },
+  {
+    id: "4",
+    name: "Jazz",
+    image: require("../assets/images/drake.jpg"),
+    color: "#866ebfff",
+  },
+  {
+    id: "5",
+    name: "Classical",
+    image: require("../assets/images/drake.jpg"),
+    color: "#bf86d4ff",
+  },
+  {
+    id: "6",
+    name: "Electronic",
+    image: require("../assets/images/drake.jpg"),
+    color: "#d4866eff",
+  },
+  {
+    id: "7",
+    name: "Country",
+    image: require("../assets/images/drake.jpg"),
+    color: "#d4bf86ff",
+  },
+];

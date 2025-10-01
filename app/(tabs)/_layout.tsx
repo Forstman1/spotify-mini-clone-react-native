@@ -2,11 +2,8 @@ import { Tabs } from "expo-router";
 import React from "react";
 
 import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
-import Icon from "@expo/vector-icons/FontAwesome6";
 import { Animated, Platform, View } from "react-native";
 import AnimatedIcon from "@/components/animatedIcon";
-// import Animated from "react-native-reanimated";
 
 export default function TabLayout() {
   return (
